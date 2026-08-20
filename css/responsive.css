@@ -1,0 +1,162 @@
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS & PRINT A4 STYLES
+   ========================================================================== */
+
+/* Hide print-only elements on web screen */
+.print-only-container {
+    display: none;
+}
+
+/* Tablet & Smaller Screens */
+@media (max-width: 1024px) {
+    .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .hero-section {
+        padding-top: 6rem;
+    }
+
+    .hero-name {
+        font-size: 3rem;
+    }
+
+    .hero-3d-wrapper {
+        margin-top: 2rem;
+    }
+}
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+    .navbar-header {
+        width: 92%;
+        padding: 0.8rem 1.2rem;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(3, 7, 18, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 1.5rem;
+        clip-path: circle(0% at 100% 0);
+        transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-menu.active {
+        clip-path: circle(140% at 100% 0);
+    }
+
+    .hamburger-btn {
+        display: flex;
+    }
+
+    .section {
+        padding: 4rem 5vw;
+    }
+
+    .timeline-line {
+        left: 20px;
+    }
+
+    .timeline-node, .timeline-node:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 45px;
+    }
+
+    .timeline-dot, .timeline-node:nth-child(even) .timeline-dot {
+        left: 13px;
+        right: auto;
+    }
+
+    .timeline-card {
+        width: 100%;
+    }
+
+    .custom-cursor-dot, .custom-cursor-outline {
+        display: none !important;
+    }
+
+    .profile-card-3d {
+        width: 280px;
+        height: 380px;
+    }
+
+    .license-card-3d {
+        width: 320px;
+        height: 200px;
+    }
+}
+
+/* ==========================================================================
+   PRINT STYLESHEET FOR A4 PDF GENERATION
+   ========================================================================== */
+@media print {
+    /* Hide non-printable web UI elements */
+    #bg-canvas, .glow-orb, .scroll-progress-container,
+    .navbar-header, .loader-screen, .custom-cursor-dot, .custom-cursor-outline,
+    .hero-section, .about-section, .skills-section, .education-section,
+    .experience-section, .license-section, .contact-section, .footer-block {
+        display: none !important;
+    }
+
+    body {
+        background: #FFF !important;
+        color: #000 !important;
+        font-family: 'Inter', sans-serif !important;
+    }
+
+    .print-only-container {
+        display: block !important;
+        padding: 20px;
+    }
+
+    .print-header {
+        border-bottom: 2px solid #000;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .print-header h1 {
+        font-size: 24pt;
+        margin-bottom: 5px;
+    }
+
+    .print-header h2 {
+        font-size: 14pt;
+        color: #444;
+    }
+
+    .print-section {
+        margin-bottom: 15pt;
+    }
+
+    .print-section h3 {
+        font-size: 12pt;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 3px;
+        margin-bottom: 8pt;
+        text-transform: uppercase;
+    }
+
+    .print-item {
+        margin-bottom: 8pt;
+    }
+
+    .print-item h4 {
+        font-size: 10pt;
+        margin-bottom: 2pt;
+    }
+
+    .print-item p {
+        font-size: 9pt;
+        color: #333;
+    }
+}
